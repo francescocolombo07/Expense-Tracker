@@ -1,18 +1,198 @@
-# React + Vite
+# Expense Tracker – React & PocketBase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Questo progetto è una Single Page Application sviluppata in React per tracciare le spese personali.
+Integra un backend PocketBase per la gestione dei dati e offre un’interfaccia moderna, pulita e intuitiva.
+L’app permette la gestione completa delle spese (creazione, visualizzazione, modifica, eliminazione) e include una dashboard grafica che mostra la distribuzione degli importi tramite un grafico a torta.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Funzionalità Principali
 
-## React Compiler
+## Gestione Spese (CRUD)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+* Aggiunta di una nuova spesa tramite un form dedicato.
+* Visualizzazione delle spese con titolo, data e importo.
+* Modifica di una spesa tramite finestra modale.
+* Eliminazione con conferma dalla modale.
+* Aggiornamento immediato dell’interfaccia senza ricaricare la pagina.
 
-Note: This will impact Vite dev & build performances.
+## Dashboard Grafica
 
-## Expanding the ESLint configuration
+* Grafico a torta che mostra la distribuzione delle spese.
+* Basato su Recharts.
+* Aggiornamento dinamico in seguito ad aggiunta, modifica o eliminazione.
+* Legenda automatica con colori distinti per ogni spesa.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Calcolo Totale Spese
+
+* Visualizzazione del totale delle spese registrate.
+* Aggiornamento in tempo reale ogni volta che i dati cambiano.
+
+## Interfaccia Utente
+
+* Layout chiaro e leggibile ispirato alle applicazioni professionali.
+* Sezioni principali:
+
+  * Totale spese
+  * Aggiunta nuova spesa
+  * Lista delle spese registrate
+  * Dashboard grafica
+* Componenti modulari per una gestione pulita del codice.
+
+---
+
+# Tecnologie Utilizzate
+
+## Frontend
+
+* React
+* Hooks: useState, useEffect
+* Fetch API per la comunicazione HTTP
+* Recharts per la dashboard (PieChart)
+
+## Backend
+
+* PocketBase avviato localmente
+
+---
+
+# Struttura del Progetto
+
+```
+src/
+ ├── App.js
+ ├── components/
+ │    ├── FormSpesa.js
+ │    ├── ListaSpese.js
+ │    ├── ItemSpesa.js
+ │    ├── GraficoSpese.js
+ ├── styles/
+ └── ...
+```
+
+---
+
+# Configurazione Backend (PocketBase)
+
+1. Scaricare PocketBase dal sito ufficiale:
+   [https://pocketbase.io](https://pocketbase.io)
+
+2. Avviare il server:
+
+   ```
+   ./pocketbase serve
+   ```
+
+3. Accedere all’admin UI:
+
+   ```
+   http://127.0.0.1:8090/_/
+   ```
+
+4. Creare la collezione **spese** con i campi:
+
+   * titolo (text)
+   * importo (number)
+   * data (date)
+
+5. Impostare i permessi API della collezione:
+
+   * List: Anyone
+   * View: Anyone
+   * Create: Anyone
+   * Update: Anyone
+   * Delete: Anyone
+
+---
+
+# Installazione e Avvio Frontend
+
+1. Installare le dipendenze:
+
+   ```
+   npm install
+   ```
+
+2. Avviare l’app:
+
+   ```
+   npm run dev
+   ```
+
+3. Accertarsi che PocketBase sia avviato prima dell’apertura dell'interfaccia.
+
+---
+
+# API Utilizzate (PocketBase)
+
+### Recupero delle spese
+
+```
+GET /api/collections/spese/records
+```
+
+### Creazione nuova spesa
+
+```
+POST /api/collections/spese/records
+```
+
+### Modifica spesa
+
+```
+PATCH /api/collections/spese/records/:id
+```
+
+### Eliminazione spesa
+
+```
+DELETE /api/collections/spese/records/:id
+```
+
+---
+
+# Componenti Principali
+
+## App.js
+
+* Contiene lo stato globale delle spese.
+* Gestisce tutte le operazioni CRUD.
+* Coordina la comunicazione tra i componenti.
+
+## FormSpesa.js
+
+* Form dedicato all’inserimento di una nuova spesa.
+* Gestisce titolo, importo e data.
+
+## ListaSpese.js
+
+* Contiene l’elenco completo delle spese registrate.
+* Invia a ItemSpesa i dati necessari.
+
+## ItemSpesa.js
+
+* Rappresenta una singola spesa nella lista.
+* Gestisce apertura della modale di modifica.
+
+## GraficoSpese.js
+
+* Genera il grafico a torta con Recharts utilizzando gli importi aggiornati.
+* Si aggiorna automaticamente ad ogni modifica dei dati.
+
+---
+
+# Note Finali
+
+Il progetto è pensato come soluzione didattica ma presenta una struttura solida e facilmente estendibile.
+È possibile aggiungere ulteriori funzionalità come categorie, filtri, autenticazione o esportazione dei dati.
+
+---
+
+Se vuoi, posso:
+
+* creare la versione Markdown formattata con screenshot integrati
+* generare un PDF del README
+* aggiungere una sezione "Possibili estensioni future"
+* preparare un diagramma UML aggiornato
+
+Dimmi pure.
