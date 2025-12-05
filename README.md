@@ -151,28 +151,28 @@ DELETE /api/collections/spese/records/:id
 
 # Componenti Principali
 
-## App.js
+## App.jsx
 
 * Contiene lo stato globale delle spese.
 * Gestisce tutte le operazioni CRUD.
 * Coordina la comunicazione tra i componenti.
 
-## FormSpesa.js
+## FormSpesa.jsx
 
 * Form dedicato all’inserimento di una nuova spesa.
 * Gestisce titolo, importo e data.
 
-## ListaSpese.js
+## ListaSpese.jsx
 
 * Contiene l’elenco completo delle spese registrate.
 * Invia a ItemSpesa i dati necessari.
 
-## ItemSpesa.js
+## ItemSpesa.jsx
 
 * Rappresenta una singola spesa nella lista.
 * Gestisce apertura della modale di modifica.
 
-## GraficoSpese.js
+## GraficoSpese.jsx
 
 * Genera il grafico a torta con Recharts utilizzando gli importi aggiornati.
 * Si aggiorna automaticamente ad ogni modifica dei dati.
