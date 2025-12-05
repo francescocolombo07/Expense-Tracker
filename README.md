@@ -185,14 +185,3 @@ DELETE /api/collections/spese/records/:id
 
 Il progetto è pensato come soluzione didattica ma presenta una struttura solida e facilmente estendibile.
 È possibile aggiungere ulteriori funzionalità come categorie, filtri, autenticazione o esportazione dei dati.
-
----
-
-Se vuoi, posso:
-
-* creare la versione Markdown formattata con screenshot integrati
-* generare un PDF del README
-* aggiungere una sezione "Possibili estensioni future"
-* preparare un diagramma UML aggiornato
-
-Dimmi pure.
