@@ -60,13 +60,11 @@ L’app permette la gestione completa delle spese (creazione, visualizzazione, m
 
 ```
 src/
- ├── App.js
- ├── components/
- │    ├── FormSpesa.js
- │    ├── ListaSpese.js
- │    ├── ItemSpesa.js
- │    ├── GraficoSpese.js
- ├── styles/
+ ├── App.jsx
+ ├── FormSpesa.jsx
+ ├── ListaSpese.jsx
+ ├── ItemSpesa.jsx
+ ├── GraficoSpese.jsx
  └── ...
 ```
 
